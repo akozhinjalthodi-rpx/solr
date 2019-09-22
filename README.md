@@ -52,8 +52,73 @@ By default, the installation script will create the solr user, but you can overr
 
     -p : solr port.
 
+## SolrCloud 
+
+It is a distributed architecture focused on horizontal scaling where multiple nodes run instance of solr that communicate with each other through zookeeper.
+
 ### Setup Zookeper
 ------------------
+
+ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. 
+
+* Download the required zookeper from its official site or mirrors.
+
+    `wget https://www.apache.org/dist/zookeeper/zookeeper-3.4.14/zookeeper-3.4.14.tar.gz`
+
+* Extract the downloaded tar file.
+
+    `tar -xvzf  zookeeper-3.4.14.tar.gz`
+
+*   Create Zookeper config file.
+
+    `cd zookeeper-3.4.14/conf`
+
+    `cp zoo_sample.cfg zoo.cfg`
+
+*   Open zoo.cfg and add the server configurations
+    ```
+    dataDir=/tmp/zookeeper
+
+    clientPort=2181
+
+    server.1=localhost:2888:3888
+    ```
+
+*   Start zookeeper
+
+    `bin/zkServer.sh start`
+*   To Check zookeper status
+    
+    `bin/zkServer.sh status`
+
+### Configuring Solr
+
+* Open the solr env file
+
+    `sudo vi /etc/default/solr.in.sh`
+    ```
+    ZK_HOST="127.0.0.1:2181"
+    
+    ZK_CLIENT_TIMEOUT="15000"
+    
+    SOLR_HOST="127.0.0.1"
+    
+    SOLR_PID_DIR="/var/solr"
+    
+    SOLR_HOME="/var/solr/data"
+    
+    LOG4J_PROPS="/var/solr/log4j2.xml"
+    
+    SOLR_LOGS_DIR="/var/solr/logs"
+    
+    SOLR_PORT="8080"
+    ```
+
+*   Restart solr
+
+    `sudo service solr restart`
+
+
 
 
 
