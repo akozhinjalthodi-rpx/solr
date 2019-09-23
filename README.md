@@ -114,22 +114,15 @@ ZooKeeper is a centralized service for maintaining configuration information, na
     SOLR_PORT="8080"
     ```
 
-*   Restart solr
+* Restart solr
 
     `sudo service solr restart`
 
+### Create films collection
+  
+  `sudo -u solr /opt/workshop/solr/solr/bin/solr create -c films -shards 1 -replicationFactor 2`
 
+### Index sample data
 
-
-
-
-
-
-
-
-
-
-
-
-
+  `/opt/workshop/solr/solr/bin/post -c films /opt/workshop/solr/solr/example/films/films.json -p 8080`
 
