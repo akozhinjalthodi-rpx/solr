@@ -71,8 +71,36 @@ SOLR_PORT="8080"
 
 Example facet,mlt,highlight,stats
 
+## Indexing sample data
 
+sudo -u solr /opt/workshop/solr/solr/bin/solr delete -c tech_products
 
+### create collection
+```
+sudo -u solr /opt/workshop/solr/solr/bin/solr create -c tech_products -shards 1 -replicationFactor 2 -d /opt/workshop/solr/solr/server/solr/configsets/sample_techproducts_configs/conf -n techproducts_conf
+```
+### Post data to solr
 
+```
+/opt/workshop/solr/solr/bin/post -c tech_products /opt/workshop/solr/solr/example/exampledocs/*.xml -p 8080
 
+```
+### sample queries
+
+#### query 
+
+http://localhost:8080/solr/tech_products/select?fl=score&q=cat%3Aelectronics
+
+#### filter query
+
+http://localhost:8080/solr/tech_products/select?fl=score&fq=cat%3Aelectronics&q=*:*
+
+#### facet on catogory
+http://localhost:8080/solr/tech_products/select?facet.field=cat&facet=on&q=*%3A*
+
+#### facte on date 
+http://localhost:8080/solr/tech_products/select?facet.field=manufacturedate_dt&facet=on&q=*%3A*
+
+#### date range 
+http://localhost:8080/solr/tech_products/select?fl=manufacturedate_dt&fq=manufacturedate_dt%3A%5B2006-02-13T15%3A26%3A37Z%20TO%20*%5D&q=*%3A*
 
