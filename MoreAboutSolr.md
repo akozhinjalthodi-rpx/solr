@@ -96,19 +96,19 @@ http://localhost:8080/solr/tech_products/select?fl=score&q=cat%3Aelectronics
 http://localhost:8080/solr/tech_products/select?fl=score&fq=cat%3Aelectronics&q=\*:\*
 
 #### facet on catogory
-http://localhost:8080/solr/tech_products/select?facet.field=cat&facet=on&q=\*:\*
+http://localhost:8080/solr/tech_products/select?facet.field=cat&facet=on&q=*:\*
 
 #### facte on date 
-http://localhost:8080/solr/tech_products/select?facet.field=manufacturedate_dt&facet=on&q=\*:\*
+http://localhost:8080/solr/tech_products/select?facet.field=manufacturedate_dt&facet=on&q=*:\*
 
 #### date range 
-http://localhost:8080/solr/tech_products/select?fl=manufacturedate_dt&fq=manufacturedate_dt%3A%5B2006-02-13T15%3A26%3A37Z%20TO%20*%5D&q=\*:\*
+http://localhost:8080/solr/tech_products/select?fl=manufacturedate_dt&fq=manufacturedate_dt%3A%5B2006-02-13T15%3A26%3A37Z%20TO%20*%5D&q=*:\*
 
 ####  stats query
 
-"http://localhost:8080/solr/tech_products/select?indent=on&q=\*:\*&wt=json&stats=true&stats.field=price&fq=cat:electronics"
+"http://localhost:8080/solr/tech_products/select?indent=on&q=\*:*&wt=json&stats=true&stats.field=price&fq=cat:electronics"
 
 #### Trigonometrics Functions
-"http://localhost:8080/solr/tech_products/select?fl=cos(45)&indent=on&q=\*:\*&wt=json&rows=1"
+"http://localhost:8080/solr/tech_products/select?fl=cos(45)&indent=on&q=\*:*&wt=json&rows=1"
 
 
