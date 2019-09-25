@@ -117,6 +117,6 @@ http://localhost:8080/solr/tech_products/select?fl=cos(45)&indent=on&q=*:*&wt=js
 http://localhost:8080/solr/tech_products/select?wt=json&indent=true&fl=name,price&q=memory&group=true&group.query=price:0+TO+99&group.query=price:[101+TO+200]&group.query=price:[201+TO+*]&group.limit=10&group.ngroups=true
 
 
-#### Mlt Query
+#### Similarity Query
 
 http://localhost:8080/solr/abstracts/mlt?q=*:*&fl=*&fq=pat_id:563533
