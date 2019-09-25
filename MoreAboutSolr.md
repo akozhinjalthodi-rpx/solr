@@ -108,7 +108,7 @@ http://localhost:8080/solr/tech_products/select?q=*:*&fl=manufacturedate_dt&fq=m
 http://localhost:8080/solr/tech_products/select?indent=on&q=*:*&wt=json&stats=true&stats.field=price&fq=cat:electronics
 
 #### Trigonometrics Functions
-"http://localhost:8080/solr/tech_products/select?fl=cos(45)&indent=on&q=*:*&wt=json&rows=1"
+http://localhost:8080/solr/tech_products/select?fl=cos(45)&indent=on&q=*:*&wt=json&rows=1
 
 
 
