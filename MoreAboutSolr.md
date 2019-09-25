@@ -119,4 +119,4 @@ http://localhost:8080/solr/tech_products/select?wt=json&indent=true&fl=name,pric
 
 #### Mlt Query
 
-"http://localhost:8080/solr/abstracts/mlt?q=*:*&fl=*&fq=pat_id:563533"
+http://localhost:8080/solr/abstracts/mlt?q=*:*&fl=*&fq=pat_id:563533
