@@ -73,7 +73,6 @@ Example facet,mlt,highlight,stats
 
 ## Indexing sample data
 
-sudo -u solr /opt/workshop/solr/solr/bin/solr delete -c tech_products
 
 ### create collection
 ```
@@ -86,7 +85,7 @@ sudo -u solr /opt/workshop/solr/solr/bin/solr create -c tech_products -shards 1 
 
 ```
 ### sample queries
-```
+
 #### query 
 
 http://localhost:8080/solr/tech_products/select?fl=score&q=cat%3Aelectronics
@@ -112,4 +111,12 @@ http://localhost:8080/solr/tech_products/select?fl=manufacturedate_dt&fq=manufac
 "http://localhost:8080/solr/tech_products/select?fl=cos(45)&indent=on&q=*:*&wt=json&rows=1"
 
 
-```
+
+#### Group Query 
+
+http://localhost:8080/solr/tech_products/select?wt=json&indent=true&fl=name,price&q=memory&group=true&group.query=price:0+TO+99&group.query=price:[101+TO+200]&group.query=price:[201+TO+*]&group.limit=10&group.ngroups=true
+
+
+#### Mlt Session
+
+[http://localhost:8080/solr/abstracts/mlt?q=*:*&fl=*&fq=pat_id:563533,http://localhost:8080/solr/abstracts/mlt?q=*:*&fl=*&fq=pat_id:563533]
