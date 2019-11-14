@@ -120,3 +120,6 @@ http://localhost:8080/solr/tech_products/select?wt=json&indent=true&fl=name,pric
 #### Similarity Query
 
 http://localhost:8080/solr/abstracts/mlt?q=*:*&fl=*&fq=pat_id:563533&mlt.fl=abstract
+
+
+http://qa-solr-cloud:8080/solr/analyst_alert/select?fq=type:AnalystAlertEvent&fq=event_object_type_ss:Patent&fq=-is_stale_event_bs:true&fq=%7B!join%20from=object_and_events_id_sms%20to=objects_event_id_sms%7D(delivery_frequency_ss:daily%20AND%20user_id_ls:15900)&start=0&q=*:*&wt=json&rows=12&indent=on
